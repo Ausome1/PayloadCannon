@@ -2,7 +2,7 @@
 ob_start();
 $header = 'HTTP/1.1 404 Not Found';
 
-if (isset($_GET['id'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         $db = '../cannon.db';
         $lines = file($db);
         $search = '/^' . htmlentities($_GET['id']) . ':/';
